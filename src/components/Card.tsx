@@ -1,21 +1,15 @@
-import styles from './card.module.css'
 import Image from 'next/image';
-export default function ProductCard() {
+export default function ProductCard({venueName, imgSrc}:{venueName:string,imgSrc:string}) {
     return(
-        <div className={styles.card}>
-            <div className={styles.cardimg}>
-                <Image src={'/img/car1.jpg'}
+        <div className='w-1/5 h-[300px] rounded-lg shadow-lg'>
+            <div className='w-full h-[70%] relative rounded-t-lg'>
+                <Image src={imgSrc}
                 alt = 'Product Picture'
                 fill={true}
-                objectFit='cover'
+                className='object-cover rounded-t-lg'
                 />
             </div>
-            <div className={styles.cardtext}>
-                <h3 className={styles.T1}>IMPACT Arena</h3>
-                <h5 className={styles.T2}>
-                    One of the largest and most modern entertainment venues in Thailand.
-                </h5>
-            </div>
+            <div className='w-full h-[30%] p-[10px]'>{venueName}</div>
         </div>
     );
 }
